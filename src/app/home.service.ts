@@ -24,8 +24,12 @@ export class HomeService {
     return this.http.get(this.url + this.apikey + '&s=' + name).toPromise();
   }
 
-  detailsfilm( imdb: string): promise<any>{
-    return this.http.get(this.url + this.apikey + '&i=' + imdb).toPromise();
+  detailsfilm(imdb){
+    return this.http.get(this.url + this.apikey + '&i=' + imdb);
   }
+
+  // getProduct(productId) {
+  //   return this.httpClient.get(`${this.API_URL + 'products'}/${productId}`)
+  // }
   
 }
