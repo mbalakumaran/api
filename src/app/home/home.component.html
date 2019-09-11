@@ -1,8 +1,10 @@
 <input type="text" placeholder="enter movie name" (keyup)="getflim($event)">
 
 <div>
-    <ul *ngFor= "let filme of filmes">
-        <img [src] = "filme.Poster" >
-        <li>{{filme?.Title}}</li>
-    </ul>
+    <a *ngFor= "let filme of filmes" routerLink="/moviesdetails/{{filme.imdbID}}">
+        <ul>
+            <img [src] = "filme.Poster" >
+            <li>{{filme?.Title}}</li>
+        </ul>
+    </a>
 </div>

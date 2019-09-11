@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { promise } from 'protractor';
 import { Observable } from 'rxjs';
 import { Response } from 'selenium-webdriver/http';
+import { HomeComponent } from '../app/home/home.component';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +13,7 @@ export class HomeService {
 
   apikey: string;
   url:string;
+  imdb: string;
 
   constructor( private http: HttpClient ) { 
     this.apikey = "69a16124";
@@ -19,12 +22,10 @@ export class HomeService {
 
   showfilm(name: string): promise<any>{
     return this.http.get(this.url + this.apikey + '&s=' + name).toPromise();
-    // const urlfilm = "this.url + this.apikey + '&s=' + name";{
-    //   return this.http.get(this.urlfilm)
-    //   .map((res = Response)=>{
+  }
 
-    //   })
-    // }
+  detailsfilm( imdb: string): promise<any>{
+    return this.http.get(this.url + this.apikey + '&i=' + imdb).toPromise();
   }
   
 }
